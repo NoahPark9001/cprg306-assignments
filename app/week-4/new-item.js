@@ -23,11 +23,70 @@ export default function NewItem() {
     setName("");
     setQuantity(1);
     setCategory("produce");
-
-    const nameHandler = (event) => setName(event.target.value);
-    const quantityHandler = (event) => setQuantity(event.target.value);
-    const categoryHandler = (event) => setCategory(event.target.value);
   };
 
-  return <div></div>;
+  const nameHandler = (event) => setName(event.target.value);
+  const quantityHandler = (event) => setQuantity(event.target.value);
+  const categoryHandler = (event) => setCategory(event.target.value);
+
+  return (
+    <div className="flex justify-center items-center bg-green-800 h-screen">
+      <div className="border-2 border-gray-700 p-2 rounded-lg bg-slate-500">
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-2 p-3">
+          <label>
+            Name:
+            <input
+              className="text-black w-full mt-1 border-2 border-gray-700 p-2 rounded-lg"
+              placeholder="Item Name"
+              type="text"
+              value={name}
+              onChange={nameHandler}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Quantity:
+            <input
+              className="text-black mt-1 p-1 block w-full rounded-md bg-gray-100 focus:bg-white border-2 border-gray-700"
+              type="number"
+              value={quantity}
+              onChange={quantityHandler}
+              min="1"
+              max="99"
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Category:
+            <select
+              className="text-black mt-1 p-1 block w-full rounded-md bg-gray-100 focus:bg-white border-2 border-gray-700"
+              value={category}
+              onChange={categoryHandler}
+            >
+              <option value="produce">Produce</option>
+              <option value="dairy">Dairy</option>
+              <option value="bakery">Bakery</option>
+              <option value="meat">Meat</option>
+              <option value="frozen_foods">Frozen Foods</option>
+              <option value="canned_goods">Canned Goods</option>
+              <option value="dry_goods">Dry Goods</option>
+              <option value="beverages">Beverages</option>
+              <option value="snacks">Snacks</option>
+              <option value="household">Household</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <br />
+          <button
+            className="w-full py-2 px-4 mt-4 bg-sky-300 hover:bg-sky-400 rounded-md text-white"
+            type="submit"
+          >
+            Add Item
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
