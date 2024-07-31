@@ -34,13 +34,13 @@ export default function Page() {
 
             <img src={user.photoURL} className="w-8 h-8" />
             <button
-              className="text-lg m-2 hover:underline" 
+              className="text-lg m-2 hover:underline"
               onClick={handleSignOut}
             >
               Sign Out
             </button>
             <div>
-              <Link href="/week-8/shopping-list">
+              <Link href="/week-10/shopping-list">
                 Continue to your Shopping List
               </Link>
             </div>
